@@ -11,6 +11,7 @@ async function bootstrap() {
   }))
   app.use(express.json())
   await app.listen(process.env.PORT ?? 3000);
+  app.enableShutdownHooks();
 }
 bootstrap();
  

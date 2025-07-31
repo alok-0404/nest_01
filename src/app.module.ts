@@ -10,9 +10,11 @@ import { CustomerModule } from './customer/customer.module';
 import { MynameController } from './myname/myname.controller';
 import { UserRolesController } from './user-roles/user-roles.controller';
 import { LoggerMiddleware } from "./middleware/logger/logger.middleware";
+import { DatabaseController } from './database/database.controller';
+import { DatabaseService } from './database/database.service';
 @Module({
-    controllers: [AppController, UserController, ProductController, MynameController, UserRolesController],
-    providers: [ProductService],
+    controllers: [AppController, UserController, ProductController, MynameController, UserRolesController, DatabaseController],
+    providers: [ProductService, DatabaseService],
     imports: [AuthModule, CategoryModule, StudentModule, CustomerModule],
     
 })
