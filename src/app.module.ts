@@ -12,10 +12,15 @@ import { UserRolesController } from './user-roles/user-roles.controller';
 import { LoggerMiddleware } from "./middleware/logger/logger.middleware";
 import { DatabaseController } from './database/database.controller';
 import { DatabaseService } from './database/database.service';
+import { ConfigModule } from "@nestjs/config";
+import { EvService } from './ev/ev.service';
+import { EvController } from './ev/ev.controller';
 @Module({
-    controllers: [AppController, UserController, ProductController, MynameController, UserRolesController, DatabaseController],
-    providers: [ProductService, DatabaseService],
-    imports: [AuthModule, CategoryModule, StudentModule, CustomerModule],
+    controllers: [AppController, UserController, ProductController, MynameController, UserRolesController, DatabaseController, EvController],
+    providers: [ProductService, DatabaseService, EvService],
+    imports: [AuthModule, CategoryModule, StudentModule, CustomerModule, ConfigModule.forRoot({
+        isGlobal: true,
+    })],
     
 })
 export class AppModule implements NestModule{
